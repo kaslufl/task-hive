@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:14
+    restart: always
+    container_name: task-hive-test
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: task
+      POSTGRES_PASSWORD: hive
+      POSTGRES_DB: taskhive
