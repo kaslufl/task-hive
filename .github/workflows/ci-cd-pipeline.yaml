@@ -10,7 +10,7 @@ on:
 
 env:
   API_SECRET: ${{ secrets.API_SECRET }}
-  DATABASE_URL: postgres://postgres:postgres@localhost:5432/taskhive
+  DATABASE_URL: postgresql://task:hive@localhost:5432/taskhive
 
 jobs:
   unit-tests:
