@@ -19,6 +19,9 @@ jobs:
     - uses: actions/checkout@v3
     - uses: ./.github/actions/build
 
+    - name: Generate Prisma Client
+      run: pnpm prisma generate
+
     - name: Run unit tests
       run: pnpm run test:unit
 
@@ -34,6 +37,9 @@ jobs:
 
     - name: Migrate database
       run: pnpm migrate:postgres
+    
+    - name: Generate Prisma Client
+      run: pnpm prisma generate
 
     - name: Run e2e tests
       run: pnpm run test:e2e
