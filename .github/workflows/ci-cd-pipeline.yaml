@@ -29,5 +29,11 @@ jobs:
     - uses: ./.github/actions/build
     - uses: ./.github/actions/docker-compose
 
+    - name: Docker compose up
+      run: pnpm docker:db
+
+    - name: Migrate database
+      run: pnpm migrate:postgres
+
     - name: Run e2e tests
       run: pnpm run test:e2e

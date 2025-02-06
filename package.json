@@ -19,7 +19,7 @@
     "create:migration": "pnpm dlx prisma migrate dev --name",
     "migrate:postgres": "pnpm dlx prisma migrate deploy",
     "test:unit": "jest",
-    "test:e2e": "pnpm docker:db && pnpm migrate:postgres && jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

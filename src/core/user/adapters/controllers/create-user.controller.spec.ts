@@ -11,8 +11,8 @@ describe('CreateUserController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [CreateUserController],
       providers: [
+        CreateUserController,
         {
           provide: UserGateway,
           useValue: {
