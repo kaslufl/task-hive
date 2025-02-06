@@ -17,3 +17,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install
+
+    - name: Aprove builds
+      shell: bash
+      run: pnpm approve-builds
