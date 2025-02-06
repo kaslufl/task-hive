@@ -1,0 +1,17 @@
+model Task {
+    id          Int      @id @default(autoincrement())
+    title       String   @db.VarChar(255)
+    description String
+    createdAt   DateTime @default(now()) @map("created_at")
+    updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+    status      TaskStatus
+    userId      Int      @map("user_id")
+    user        User     @relation(fields: [userId], references: [id])
+    @@map("tasks")
+}
+
+enum TaskStatus {
+    PENDING
+    IN_PROGRESS
+    DONE
+}
