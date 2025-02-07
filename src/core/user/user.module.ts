@@ -19,6 +19,6 @@ import { UserController } from './external/api/user.controller';
   ],
   controllers: [UserController],
   imports: [DatabaseModule],
-  exports: [UserGateway],
+  exports: [],
 })
 export class UserModule {}

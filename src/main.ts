@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
 
 export async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,6 +23,8 @@ export async function bootstrap() {
       validateCustomDecorators: true,
     }),
   );
+  const configService = app.get(ConfigService);
+  const jwtService = app.get(JwtService);
 
   await app.listen(process.env.APPLICATION_PORT ?? 3000);
   return app;
