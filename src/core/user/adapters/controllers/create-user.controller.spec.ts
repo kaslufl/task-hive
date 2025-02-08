@@ -15,9 +15,7 @@ describe('CreateUserController', () => {
         CreateUserController,
         {
           provide: UserGateway,
-          useValue: {
-            execute: jest.fn(),
-          },
+          useValue: jest.fn(),
         },
         {
           provide: CreateUserUseCase,

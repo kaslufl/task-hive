@@ -1,9 +1,6 @@
 name: CI CD Pipeline Task Hive
 # Apenas o CI está configurado, o CD será configurado posteriormente
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -11,6 +8,7 @@ on:
 env:
   API_SECRET: ${{ secrets.API_SECRET }}
   DATABASE_URL: postgresql://task:hive@localhost:5432/taskhive
+  JWT_EXPIRES_IN: 3600
 
 jobs:
   unit-tests:

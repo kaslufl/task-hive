@@ -1,11 +1,36 @@
 services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql://task:hive@db:5432/taskhive
+      API_SECRET: 4bfb7ef6523b264901cc42f772c6dd45da096f759ad241f1cd9b7e8121e6a786
+      JWT_EXPIRES_IN: 3600
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    networks:
+      - app_network
+    command: >
+      sh -c "pnpm dlx prisma migrate deploy && pnpm start:prod"
+
   db:
     image: postgres:14
     restart: always
-    container_name: task-hive-test
     ports:
       - '5432:5432'
     environment:
       POSTGRES_USER: task
       POSTGRES_PASSWORD: hive
       POSTGRES_DB: taskhive
+    networks:
+      - app_network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+
+networks:
+  app_network:
+    driver: bridge
