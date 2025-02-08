@@ -22,7 +22,7 @@ import { GetTaskController } from '../../adapters/controllers/get-task-by-id.con
 import { GetTasksController } from '../../adapters/controllers/get-tasks.controller';
 import { UpdateTaskController } from '../../adapters/controllers/update-task.controller';
 import { Task, TaskStatus } from '../../entities/task.entity';
-import { JwtAuthGuard } from 'src/infrastructure/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../../../../infrastructure/guards/jwt-auth.guard';
 import { CreateTaskDto } from '../../dto/create-task.dto';
 import { Prisma } from '@prisma/client';
 import { UpdateTaskDto } from '../../dto/update-task.dto';

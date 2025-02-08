@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoginController } from '../../adapters/controllers/login.controller';
 import { LoginDto } from '../../dto/login-user.dto';
@@ -10,12 +10,13 @@ export class AuthController {
   constructor(private readonly loginController: LoginController) {}
 
   @Post('/login')
+  @HttpCode(200)
   @ApiOperation({
     summary: 'Login user',
     description: 'Login with the provided information',
   })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'User logged in successfully',
     schema: {
       example: {
