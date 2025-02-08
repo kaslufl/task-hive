@@ -13,8 +13,4 @@ export class AuthGateway {
   async login(user: User) {
     return this.authService.login(user);
   }
-
-  async verifyToken(token: string) {
-    return this.authService.verifyToken(token);
-  }
 }

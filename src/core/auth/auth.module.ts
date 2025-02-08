@@ -35,7 +35,7 @@ import { UserRepository } from '../user/external/repository/user.repository';
       imports: [ConfigModule],
       useFactory: async () => ({
         secret: jwtConfig().secret,
-        signOptions: { expiresIn: jwtConfig().expiresIn },
+        signOptions: { expiresIn: Number(jwtConfig().expiresIn) },
       }),
     }),
   ],

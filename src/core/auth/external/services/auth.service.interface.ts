@@ -8,6 +8,5 @@ export abstract class IAuthService {
     password: string,
     storedPassword: string,
   ): Promise<boolean>;
-  abstract generateToken(payload: PayloadTokenDto): string;
-  abstract verifyToken(token: string): Promise<boolean>;
+  abstract generateToken(payload: PayloadTokenDto, expiresIn: number): string;
 }

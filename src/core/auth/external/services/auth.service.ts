@@ -10,11 +10,12 @@ import * as bcryptjs from 'bcryptjs';
 export class AuthService implements IAuthService {
   constructor(private readonly jwtService: JwtService) {}
   async login(user: User): Promise<TokenDto> {
+    const oneHour = 3600;
+    const expiresIn = Number(process.env.JWT_EXPIRES_IN) || oneHour;
     const token = this.generateToken({
       userId: user.id,
       email: user.email,
     });
-    const expiresIn = process.env.JWT_EXPIRES_IN;
     return {
       access_token: token,
       token_type: 'Bearer',
@@ -31,9 +32,5 @@ export class AuthService implements IAuthService {
 
   generateToken(payload: PayloadTokenDto): string {
     return this.jwtService.sign(payload);
-  }
-
-  async verifyToken(token: string): Promise<boolean> {
-    return true;
   }
 }

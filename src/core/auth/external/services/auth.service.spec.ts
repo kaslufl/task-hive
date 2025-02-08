@@ -90,14 +90,4 @@ describe('AuthService', () => {
       expect(result).toBe(token);
     });
   });
-
-  describe('verifyToken', () => {
-    it('should return true', async () => {
-      const token = 'testToken';
-
-      const result = await service.verifyToken(token);
-
-      expect(result).toBe(true);
-    });
-  });
 });

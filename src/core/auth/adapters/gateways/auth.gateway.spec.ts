@@ -54,12 +54,4 @@ describe('AuthGateway', () => {
       expect(authService.login).toHaveBeenCalledWith(user);
     });
   });
-
-  describe('verifyToken', () => {
-    it('should call authService.verifyToken with correct parameters', async () => {
-      const token = 'token';
-      await authGateway.verifyToken(token);
-      expect(authService.verifyToken).toHaveBeenCalledWith(token);
-    });
-  });
 });

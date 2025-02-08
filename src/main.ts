@@ -12,6 +12,17 @@ export async function bootstrap() {
     .setTitle('task-hive')
     .setDescription('The task-hive is an app to manage your tasks')
     .setVersion('1.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Insert JWT token',
+        in: 'header',
+      },
+      'access-token',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
